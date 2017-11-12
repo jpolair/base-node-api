@@ -7,6 +7,7 @@ var {Todo} = require('./db/models/todo');
 var {User} = require('./db/models/user');
 
 var app = express();
+const port = process.env.port || 3000;
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -48,8 +49,8 @@ app.get('/todos/:id', (req, res) => {
         });
 });
 
-app.listen(3000, () => {
-    console.log('le serveur écoute le port 3000');
+app.listen(port, () => {
+    console.log(`le serveur écoute le port ${port}`);
 });
 
 module.exports = { app };
